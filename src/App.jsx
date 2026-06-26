@@ -9,22 +9,21 @@ import Home from './components/Home';
 import Products from './components/Products';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { Plant, CartItem } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
   // Navigation active tab State
-  const [activePage, setActivePage] = useState<'home' | 'products' | 'contact'>('home');
+  const [activePage, setActivePage] = useState('home');
 
   // Shopping Cart State
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Selected plant for "Quick View / Care Tips" Modal
-  const [selectedPlantId, setSelectedPlantId] = useState<string | null>(null);
+  const [selectedPlantId, setSelectedPlantId] = useState(null);
 
   // Cart Handlers
-  const handleAddToCart = (plant: Plant) => {
+  const handleAddToCart = (plant) => {
     setCart((prevCart) => {
       const existingItemIdx = prevCart.findIndex((item) => item.plant.id === plant.id);
       if (existingItemIdx > -1) {
@@ -38,7 +37,7 @@ export default function App() {
     });
   };
 
-  const handleUpdateCartQty = (plantId: string, delta: number) => {
+  const handleUpdateCartQty = (plantId, delta) => {
     setCart((prevCart) => {
       return prevCart
         .map((item) => {
@@ -51,12 +50,12 @@ export default function App() {
     });
   };
 
-  const handleRemoveFromCart = (plantId: string) => {
+  const handleRemoveFromCart = (plantId) => {
     setCart((prevCart) => prevCart.filter((item) => item.plant.id !== plantId));
   };
 
   // Switch to products page and immediately open the Care Tips Modal
-  const handleSelectPlant = (plantId: string) => {
+  const handleSelectPlant = (plantId) => {
     setSelectedPlantId(plantId);
     setActivePage('products');
   };

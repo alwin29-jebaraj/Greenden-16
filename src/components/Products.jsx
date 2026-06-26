@@ -9,19 +9,7 @@ import {
   ShoppingBag, Check, Droplets, Sun, Maximize2, ShoppingCart, Info
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plant, CartItem } from '../types';
 import { PLANTS } from '../data';
-
-interface ProductsProps {
-  cart: CartItem[];
-  onAddToCart: (plant: Plant) => void;
-  onUpdateCartQty: (plantId: string, delta: number) => void;
-  onRemoveFromCart: (plantId: string) => void;
-  isCartOpen: boolean;
-  setIsCartOpen: (open: boolean) => void;
-  selectedPlantId: string | null;
-  setSelectedPlantId: (plantId: string | null) => void;
-}
 
 export default function Products({
   cart,
@@ -32,11 +20,11 @@ export default function Products({
   setIsCartOpen,
   selectedPlantId,
   setSelectedPlantId
-}: ProductsProps) {
+}) {
   // Filters & Sorting state
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<string>('featured');
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [sortBy, setSortBy] = useState('featured');
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
 
   // Detail Modal target

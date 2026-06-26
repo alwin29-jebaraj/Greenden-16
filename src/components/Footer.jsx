@@ -3,19 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
 import { Leaf, ArrowRight, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-interface FooterProps {
-  setActivePage: (page: 'home' | 'products' | 'contact') => void;
-}
-
-export default function Footer({ setActivePage }: FooterProps) {
+export default function Footer({ setActivePage }) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = (e: FormEvent) => {
+  const handleSubscribe = (e) => {
     e.preventDefault();
     if (!email.trim()) return;
     setSubscribed(true);

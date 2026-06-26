@@ -3,9 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Plant } from './types';
-
-export const PLANTS: Plant[] = [
+export const PLANTS = [
   {
     id: 'p1',
     name: 'Monstera Deliciosa',
@@ -140,7 +138,7 @@ export const PLANTS: Plant[] = [
     name: 'Bird’s Nest Fern',
     scientificName: 'Asplenium nidus',
     price: 26,
-    image: 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=800&q=80',
     category: 'pet-friendly',
     difficulty: 'Medium',
     sunlight: 'Medium indirect light; thrives in humid environments',

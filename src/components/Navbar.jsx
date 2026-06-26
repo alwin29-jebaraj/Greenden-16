@@ -7,23 +7,16 @@ import { useState } from 'react';
 import { Menu, X, ShoppingBag, Leaf } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-interface NavbarProps {
-  activePage: 'home' | 'products' | 'contact';
-  setActivePage: (page: 'home' | 'products' | 'contact') => void;
-  cartItemCount: number;
-  onCartClick: () => void;
-}
-
-export default function Navbar({ activePage, setActivePage, cartItemCount, onCartClick }: NavbarProps) {
+export default function Navbar({ activePage, setActivePage, cartItemCount, onCartClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Products' },
     { id: 'contact', label: 'Contact' }
-  ] as const;
+  ];
 
-  const handleNavClick = (page: 'home' | 'products' | 'contact') => {
+  const handleNavClick = (page) => {
     setActivePage(page);
     setIsMenuOpen(false);
   };

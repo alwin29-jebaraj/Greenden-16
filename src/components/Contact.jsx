@@ -3,15 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ContactSubmission } from '../types';
 import { FAQS } from '../data';
 
 export default function Contact() {
   // Form state
-  const [formData, setFormData] = useState<ContactSubmission>({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
@@ -22,10 +21,10 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // FAQ toggle state
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   // Form submit handler
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     

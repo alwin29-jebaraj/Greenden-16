@@ -6,20 +6,14 @@
 import { Sprout, HeartHandshake, Sun, ArrowRight, Star } from 'lucide-react';
 import { motion } from 'motion/react';
 import { FEATURES, PLANTS } from '../data';
-// @ts-ignore
 import heroBannerImage from '../assets/images/greenden_hero_banner_1782452406204.jpg';
 
-interface HomeProps {
-  setActivePage: (page: 'home' | 'products' | 'contact') => void;
-  onSelectPlant: (plantId: string) => void;
-}
-
-export default function Home({ setActivePage, onSelectPlant }: HomeProps) {
+export default function Home({ setActivePage, onSelectPlant }) {
   // Get popular plants for showcase
   const popularPlants = PLANTS.filter(p => p.isPopular).slice(0, 3);
 
   // Map string to Lucide component
-  const getIcon = (name: string) => {
+  const getIcon = (name) => {
     switch (name) {
       case 'Sprout': return <Sprout className="w-6 h-6 text-emerald-600" />;
       case 'HeartHandshake': return <HeartHandshake className="w-6 h-6 text-emerald-600" />;
